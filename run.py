@@ -17,6 +17,14 @@ SHEET = GSPREAD_CLIENT.open("love_sandwiches")
 
 sales = SHEET.worksheet("sales")
 
-data = sales.get_all_values()
+def get_sales_data():
+    """
+    Get the number of sandwiches sales from the user
+    """
+print("Please enter the data sales from the last marked day")
+print("the data format should be 6 numbers separated by commas")
+print("Data example: 10, 20, 30, 40, 50, 60\n")
+data_str = input("Enter your data here: ")
+print(f"The data provided is {data_str}")
 
-print(data)
+get_sales_data()
