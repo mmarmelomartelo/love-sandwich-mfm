@@ -22,16 +22,19 @@ def get_sales_data():
     """
     Get the number of sandwiches sales from the user
     """
+    while True:
+        print("Please enter the data sales from the last marked day")
+        print("the data format should be 6 numbers separated by commas")
+        print("Data example: 10, 20, 30, 40, 50, 60\n")
+        data_str = input("Enter your data here: ")
+        print(f"The data provided is {data_str}")
 
+        sales_data = data_str.split(",")
+        if validate_data(sales_data):
+            print("data is valid! Thanks")
+            break
 
-    print("Please enter the data sales from the last marked day")
-    print("the data format should be 6 numbers separated by commas")
-    print("Data example: 10, 20, 30, 40, 50, 60\n")
-    data_str = input("Enter your data here: ")
-    print(f"The data provided is {data_str}")
-
-    sales_data = data_str.split(",")
-    validate_data(sales_data)
+       
 
 def validate_data(values):
     
@@ -47,8 +50,11 @@ def validate_data(values):
                 f"Exactly 6 values require, you provided {len(values)}"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
+            print(f"Invalid data: {e}, please try again.\n")
+            
+            return False
+    
+    return True
 
-
-get_sales_data()
+data = get_sales_data()
 
